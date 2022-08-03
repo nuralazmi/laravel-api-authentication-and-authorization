@@ -20,4 +20,10 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', [UserController::class, 'me']);
     Route::get('/auth/logout', [AuthController::class, 'logout']);
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/test', function () {
+            echo 'Buraya sadece adminler görebilir. Evet adminsiniz.';
+        });
+    });
+
 });
