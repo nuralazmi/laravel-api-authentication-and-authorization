@@ -68,4 +68,15 @@ class AuthController extends Controller
             ]
         );
     }
+
+    //Çıkış işlemi
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+        return [
+            'message' => 'Tokens Revoked'
+        ];
+    }
+
+
 }
