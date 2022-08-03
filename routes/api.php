@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 */
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
+Route::get('/auth/error', [AuthController::class, 'error'])->name('auth.error');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', [UserController::class, 'me']);

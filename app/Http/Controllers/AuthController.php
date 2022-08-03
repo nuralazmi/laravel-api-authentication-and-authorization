@@ -78,5 +78,11 @@ class AuthController extends Controller
         ];
     }
 
+    //Giriş yapmayan kişilerin istek atıklarında dönecek cevap
+    public function error()
+    {
+        return response()->json(['message' => 'Geçerli bir token giriniz']);
+    }
+
 
 }
